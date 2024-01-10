@@ -1,0 +1,7 @@
+{
+  "name": "animehq-new",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
