@@ -122,6 +122,7 @@ const NavSearch = styled.input`
     padding-left:35px;
     border-radius:8px;
     font-family:'Cairo';
+    height:35px;
 `;
 
 const NavSearchContainer = styled.div`

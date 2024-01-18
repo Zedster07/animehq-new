@@ -12,19 +12,10 @@ const PostersType1 = ({title, posters}) => {
         }
     }, [emblaApi])
  // "https://animhq.com/wp-content/uploads/2024/01/metallic-rouge-886659320c.jpg"
-const data =  [
-    {
-        image: "https://animhq.com/wp-content/uploads/2024/01/metallic-rouge-886659320c.jpg",
-        title: "Metallic Rouge",
-        seasons:2,
-        year:2023,
-        rating:9.12,
-        categories:["درامة", "أكشن"]
-    }
-]
-    return <PostersType1Container>
+
+    return <PostersType1Container className="embla" ref={emblaRef}>
         <PostersType1ContainerTitle>{title}</PostersType1ContainerTitle>
-        <div className="embla" ref={emblaRef}>
+
             <PostersType1ContainerSlider className="embla__container">
             {
                 posters.map((item,index) => {
@@ -61,8 +52,6 @@ const data =  [
             }
 
         </PostersType1ContainerSlider>
-        </div>
-        
     </PostersType1Container>
 }
 
