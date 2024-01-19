@@ -68,7 +68,7 @@ const Home = () => {
       <IonContent fullscreen scrollEvents={true} id="main-content" onIonScroll={(e) => {
         setPageScroll(e.detail.scrollTop);
       }}>
-        <MainSliderComp slides={slides} autoSlide={true} duration={5} />
+        <MainSliderComp slides={slides} autoSlide={true} duration={8} />
         <HomePageContent>
           <PostersType1 title="أعلى التقييمات" posters={topRated} />
         </HomePageContent>

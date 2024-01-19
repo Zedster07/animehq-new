@@ -2,27 +2,55 @@ import { IonIcon } from "@ionic/react";
 import { PlayIcon, PosterType1, PosterType1AddWatchListButton, PosterType1Details, PosterType1DetailsInfo, PosterType1Img, PosterType1PlayIconContainer, PostersType1Container, PostersType1ContainerSlider, PostersType1ContainerTitle } from "./PostersType1Styles";
 import { playCircle, playCircleOutline, radioButtonOn, star } from "ionicons/icons";
 import React, { useEffect } from "react";
-import useEmblaCarousel from 'embla-carousel-react'
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const PostersType1 = ({title, posters}) => {
     
-    const [emblaRef , emblaApi] = useEmblaCarousel({slidesToScroll:1})
-    useEffect(() => {
-        if (emblaApi) {
-            console.log(emblaApi.slideNodes()) // Access API
-        }
-    }, [emblaApi])
 
-    
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+      };
  // "https://animhq.com/wp-content/uploads/2024/01/metallic-rouge-886659320c.jpg"
 
-    return <PostersType1Container className="embla" ref={emblaRef}>
+    return <PostersType1Container>
         <PostersType1ContainerTitle>{title}</PostersType1ContainerTitle>
 
-            <PostersType1ContainerSlider className="embla__container">
+            <PostersType1ContainerSlider {...settings}>
             {
                 posters.map((item,index) => {
-                    return <PosterType1 key={index} className="embla__slide">
+                    return <PosterType1 key={index}>
                         <PosterType1Img bg={item.image} >
                             <PosterType1PlayIconContainer>
                                 <PlayIcon icon={playCircleOutline} />
@@ -54,7 +82,7 @@ const PostersType1 = ({title, posters}) => {
                 })
             }
 
-        </PostersType1ContainerSlider>
+            </PostersType1ContainerSlider>
     </PostersType1Container>
 }
 
