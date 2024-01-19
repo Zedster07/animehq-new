@@ -5,12 +5,15 @@ import React, { useEffect } from "react";
 import useEmblaCarousel from 'embla-carousel-react'
 
 const PostersType1 = ({title, posters}) => {
+    
     const [emblaRef , emblaApi] = useEmblaCarousel({slidesToScroll:1})
     useEffect(() => {
         if (emblaApi) {
             console.log(emblaApi.slideNodes()) // Access API
         }
     }, [emblaApi])
+
+    
  // "https://animhq.com/wp-content/uploads/2024/01/metallic-rouge-886659320c.jpg"
 
     return <PostersType1Container className="embla" ref={emblaRef}>
