@@ -3,51 +3,14 @@ import { PlayIcon, PosterType1, PosterType1AddWatchListButton, PosterType1Detail
 import { playCircle, playCircleOutline, radioButtonOn, star } from "ionicons/icons";
 import React, { useEffect } from "react";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 const PostersType1 = ({title, posters}) => {
     
-
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-      };
  // "https://animhq.com/wp-content/uploads/2024/01/metallic-rouge-886659320c.jpg"
 
     return <PostersType1Container>
         <PostersType1ContainerTitle>{title}</PostersType1ContainerTitle>
-
-            <PostersType1ContainerSlider {...settings}>
+            
+            <PostersType1ContainerSlider>
             {
                 posters.map((item,index) => {
                     return <PosterType1 key={index}>
@@ -83,6 +46,12 @@ const PostersType1 = ({title, posters}) => {
             }
 
             </PostersType1ContainerSlider>
+            <button className="prev" onClick={() => {}}>
+                &#10094;
+            </button>
+            <button className="next" onClick={() => {}}>
+                &#10095;
+            </button>
     </PostersType1Container>
 }
 
